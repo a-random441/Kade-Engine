@@ -1,4 +1,4 @@
-
+<!--update-->
 ![Kade Engine logo](assets/preload/images/KadeEngineLogo.png)
 You might be confused, this is kadedev, not kade-github, if you want to go to the official site, you can keep changing it to kade-github instead of kadedev.
 
