@@ -60,7 +60,7 @@ class NoteskinHelpers
 		Debug.logTrace("bruh momento");
 
 		var path = FileSystem.absolutePath(#if android SUtil.getStorageDirectory() + #end "assets/shared/images/noteskins") + "/" + getNoteskinByID(id);
-		var data:BitmapData = BitmapData.fromFile(path + ".png");
+		var data:BitmapData = SUtil.getStorageDirectory() + BitmapData.fromFile(path + ".png");
 
 		return FlxAtlasFrames.fromSparrow(FlxGraphic.fromBitmapData(data), xmlData[id]);
 
@@ -85,7 +85,7 @@ class NoteskinHelpers
 		}
 		return BitmapData.fromFile(path + ".png");
 
-		// return Paths.getSparrowAtlas('noteskins/' + NoteskinHelpers.getNoteskinByID(FlxG.save.data.noteskin), "shared");
+		// return Paths.getSparrowAtlas(#if android SUtil.getStorageDirectory() + #end 'noteskins/' + NoteskinHelpers.getNoteskinByID(FlxG.save.data.noteskin), "shared");
 		#else
 		return BitmapData.fromFile(Paths.image('noteskins/Arrows-pixel', "shared"));
 		#end
