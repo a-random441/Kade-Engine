@@ -47,8 +47,8 @@ class TitleState extends MusicBeatState
 	{
 		// TODO: Refactor this to use OpenFlAssets.
 		#if FEATURE_FILESYSTEM
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
+		if (!sys.FileSystem.exists(#if desktop Sys.getCwd() + #else SUtil.getStorageDirectory() + #end "/assets/replays")) //compatibility with pc and android poop haha
+			sys.FileSystem.createDirectory(#if desktop Sys.getCwd() + #else SUtil.getStorageDirectory() + #end"/assets/replays");
 		#end
 
 		@:privateAccess
