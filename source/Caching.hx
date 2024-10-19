@@ -94,14 +94,14 @@ class Caching extends MusicBeatState
 			Debug.logTrace("caching images...");
 
 			// TODO: Refactor this to use OpenFlAssets.
-			for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/shared/images/characters")))
+			for (i in FileSystem.readDirectory(FileSystem.absolutePath(#if !desktop SUtil.getStorageDirectory() + #end "assets/shared/images/characters")))
 			{
 				if (!i.endsWith(".png"))
 					continue;
 				images.push(i);
 			}
 
-			for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/shared/images/noteskins")))
+			for (i in FileSystem.readDirectory(FileSystem.absolutePath(#if !desktop SUtil.getStorageDirectory() + #end "assets/shared/images/noteskins")))
 			{
 				if (!i.endsWith(".png"))
 					continue;
