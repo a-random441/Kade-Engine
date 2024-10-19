@@ -48,6 +48,8 @@ class Main extends Sprite
 
 		super();
 
+		SUtil.uncaughtErrorHandler();
+
 		if (stage != null)
 		{
 			init();
@@ -94,19 +96,20 @@ class Main extends Sprite
 		// Gotta run this before any assets get loaded.
 		ModCore.initialize();
 
-		#if !mobile
+		// Run this so it uses phone storage.
+		#if mobile
+		SUtil.checkFiles();
+		#end
+
 		fpsCounter = new KadeEngineFPS(10, 3, 0xFFFFFF);
 		bitmapFPS = ImageOutline.renderImage(fpsCounter, 1, 0x000000, true);
 		bitmapFPS.smoothing = true;
-		#end
 
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
 		addChild(game);
 
-		#if !mobile
 		addChild(fpsCounter);
 		toggleFPS(FlxG.save.data.fps);
-		#end
 
 		// Finish up loading debug tools.
 		Debug.onGameStart();
