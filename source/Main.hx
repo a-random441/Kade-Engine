@@ -90,8 +90,10 @@ class Main extends Sprite
 		framerate = 60;
 		#end
 
-		// Run this first so we can see logs.
+		// Run this first so we can see logs (Only used for Desktop as it causes error in Android).
+		#if desktop
 		Debug.onInitProgram();
+		#end
 
 		// Gotta run this before any assets get loaded.
 		ModCore.initialize();
