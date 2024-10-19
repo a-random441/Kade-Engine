@@ -225,7 +225,7 @@
   <!-- Defines whether WebM videos should be enabled. Currently only enabled on Windows and Android. -->
   <haxedef name="FEATURE_WEBM" if="windows || android" />
   <!-- Defines whether StepMania files can be loaded. -->
-  <haxedef name="FEATURE_STEPMANIA" if="desktop" />
+  <haxedef name="FEATURE_STEPMANIA" if="desktop || mobile" />
   <!-- Defines whether the Thread class can be used. -->
   <haxedef name="FEATURE_MULTITHREADING" if="cpp" />
   <!-- Defines whether extension-androidtools shoud be used. Currently enabled on Android. -->
