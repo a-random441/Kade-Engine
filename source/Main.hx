@@ -48,7 +48,9 @@ class Main extends Sprite
 
 		super();
 
+		#if FEATURE_EXTANDROIDTOOLS
 		SUtil.uncaughtErrorHandler();
+		#end
 
 		if (stage != null)
 		{
@@ -90,18 +92,18 @@ class Main extends Sprite
 		framerate = 60;
 		#end
 
+		// Run this so it uses phone storage.
+		#if FEATURE_EXTANDROIDTOOLS
+		SUtil.checkFiles();
+		#end
+
 		// Run this first so we can see logs (Only used for Desktop as it causes error in Android).
-		#if desktop
+		#if !mobile
 		Debug.onInitProgram();
 		#end
 
 		// Gotta run this before any assets get loaded.
 		ModCore.initialize();
-
-		// Run this so it uses phone storage.
-		#if mobile
-		SUtil.checkFiles();
-		#end
 
 		fpsCounter = new KadeEngineFPS(10, 3, 0xFFFFFF);
 		bitmapFPS = ImageOutline.renderImage(fpsCounter, 1, 0x000000, true);
