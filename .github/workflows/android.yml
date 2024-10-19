@@ -75,6 +75,12 @@ jobs:
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
+      - name: hxcpp turns into git lol
+        run: |
+          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
+          haxelib run lime rebuild hxcpp
+          haxelib --never list
+
       - name: build logs lol (${{matrix.flag}})
         run: haxelib run lime build android -D ${{matrix.flag}}
           
